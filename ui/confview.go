@@ -337,7 +337,7 @@ func newInterfaceView(parent walk.Container) (*interfaceView, error) {
 	}
 	disposables.Add(iv.toggleActive)
 
-	iv.lines = append([]widgetsLine{iv.status}, append(iv.lines, iv.toggleActive)...)
+	iv.lines = append([]widgetsLine{iv.toggleActive, iv.status}, iv.lines...)
 
 	layoutInGrid(iv, parent.Layout().(*walk.GridLayout))
 
