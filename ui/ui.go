@@ -122,8 +122,8 @@ func showError(err error, owner walk.Form) bool {
 	return true
 }
 
-func showErrorCustom(title, message string, owner walk.Form) bool {
-	return walk.MsgBox(owner, title, message, walk.MsgBoxIconError) != 0
+func showErrorCustom(owner walk.Form, title, message string) {
+	walk.MsgBox(owner, title, message, walk.MsgBoxIconError)
 }
 
 func showWarningCustom(owner walk.Form, title, message string) {
