@@ -78,8 +78,6 @@ func RunUI() {
 				if tray != nil && IsAdmin {
 					tray.UpdateFound()
 				}
-			case manager.UpdateStateUpdatesDisabledUnofficialBuild:
-				mtw.SetTitle(l18n.Sprintf("%s (unsigned build, no updates)", mtw.Title()))
 			}
 		})
 	}
@@ -124,8 +122,8 @@ func showError(err error, owner walk.Form) bool {
 	return true
 }
 
-func showErrorCustom(owner walk.Form, title, message string) {
-	walk.MsgBox(owner, title, message, walk.MsgBoxIconError)
+func showErrorCustom(title, message string, owner walk.Form) bool {
+	return walk.MsgBox(owner, title, message, walk.MsgBoxIconError) != 0
 }
 
 func showWarningCustom(owner walk.Form, title, message string) {
